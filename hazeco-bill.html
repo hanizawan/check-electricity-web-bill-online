@@ -83,10 +83,10 @@ a{color:#16a34a}
 .page-head h1{margin:0 0 8px;font-size:2rem;line-height:1.2}
 .page-head p{color:#dbeafe;margin:0;max-width:720px}
 .checker{max-width:640px;margin:-24px auto 0;position:relative}
-.mode-toggle{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.mode-toggle label{flex:1;text-align:center;border:1.5px solid #d1d5db;border-radius:10px;padding:10px;cursor:pointer;font-weight:600;color:#374151;background:#fff}
-.mode-toggle input{display:none}
-.mode-toggle label.active{background:#16a34a;border-color:#16a34a;color:#fff}
+.mode-toggle,.type-toggle{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.mode-toggle label,.type-toggle label{flex:1;text-align:center;border:1.5px solid #d1d5db;border-radius:10px;padding:10px;cursor:pointer;font-weight:600;color:#374151;background:#fff}
+.mode-toggle input,.type-toggle input{display:none}
+.mode-toggle label.active,.type-toggle label.active{background:#16a34a;border-color:#16a34a;color:#fff}
 .checker input[type=text]{width:100%;padding:14px 16px;border:1.5px solid #d1d5db;border-radius:12px;font-size:1.15rem;letter-spacing:.06em}
 .checker input[type=text]:focus{outline:2px solid #16a34a;border-color:#16a34a}
 .checker .helper{font-size:.88rem;color:#6b7280;margin:8px 0 0}
@@ -188,6 +188,10 @@ a{color:#16a34a}
         <label class="active"><input type="radio" name="mode" value="reference" checked>Reference Number</label>
         <label><input type="radio" name="mode" value="customer">Customer ID</label>
       </div>
+      <div class="type-toggle" id="typeToggle" role="radiogroup" aria-label="Choose bill type">
+        <label class="active"><input type="radio" name="billtype" value="domestic" checked>Domestic</label>
+        <label><input type="radio" name="billtype" value="industrial">Industrial</label>
+      </div>
       <input type="text" id="billNumber" inputmode="numeric" autocomplete="off" placeholder="Enter 14-digit reference number" aria-label="Bill number">
       <p class="helper" id="billHelper">Reference Number = the 14-digit number printed at the top of your bill.</p>
       <p class="error" id="billError" role="alert"></p>
@@ -200,7 +204,7 @@ a{color:#16a34a}
     <h2>How to Check Your HAZECO Bill</h2>
     <ol>
       <li>Find your <strong>14-digit reference number</strong> or <strong>10-digit customer ID</strong> on any old HAZECO bill.</li>
-      <li>Select Reference Number or Customer ID in the checker above and type the number — spaces and dashes are removed automatically.</li>
+      <li>Select Reference Number or Customer ID in the checker above (for a reference number, also pick Domestic or Industrial) and type the number — spaces and dashes are removed automatically.</li>
       <li>Press <strong>View My Bill</strong>. Your latest bill opens in a new tab on the official PITC website.</li>
       <li>Print the bill or save it as a PDF. The printed copy works as a duplicate bill for payment at any bank branch, banking app or mobile wallet.</li>
     </ol>
@@ -238,10 +242,12 @@ a{color:#16a34a}
 
 <script>
 // PITC bill endpoints — POST mechanism (same as the long-running iescobill.net checker).
-// gbill.aspx = general bill. The bill opens on PITC's own domain.
+// gbill.aspx = general/domestic bill; /<disco>bill/industrial = industrial bill (confirmed 2026-11-26).
+// The bill opens on PITC's own domain.
 const PITC = {
   billUrl: n => "https://bill.pitc.com.pk/gbill.aspx?refno=" + n,
-  customerUrl: n => "https://bill.pitc.com.pk/hazecobill/general?appno=" + n
+  customerUrl: n => "https://bill.pitc.com.pk/hazecobill/general?appno=" + n,
+  industrialUrl: n => "https://bill.pitc.com.pk/hazecobill/industrial?refno=" + n
 };
 
 function openPitcBill(url) {
@@ -280,9 +286,15 @@ if (typeof document !== "undefined") {
   var errorBox = document.getElementById("billError");
   var helper = document.getElementById("billHelper");
   var modeLabels = document.querySelectorAll(".mode-toggle label");
+  var typeLabels = document.querySelectorAll(".type-toggle label");
+  var typeToggle = document.getElementById("typeToggle");
   function currentMode() {
     var checked = document.querySelector('input[name="mode"]:checked');
     return checked ? checked.value : "reference";
+  }
+  function currentBillType() {
+    var checked = document.querySelector('input[name="billtype"]:checked');
+    return checked ? checked.value : "domestic";
   }
   function syncModeUI() {
     var mode = currentMode();
@@ -290,6 +302,11 @@ if (typeof document !== "undefined") {
       var radio = label.querySelector('input[name="mode"]');
       label.classList.toggle("active", radio && radio.checked);
     });
+    typeLabels.forEach(function (label) {
+      var radio = label.querySelector('input[name="billtype"]');
+      label.classList.toggle("active", radio && radio.checked);
+    });
+    if (typeToggle) typeToggle.style.display = mode === "reference" ? "" : "none";
     if (helper) {
       helper.textContent = mode === "customer"
         ? "Customer ID = the 10-digit number printed on your bill."
@@ -299,6 +316,9 @@ if (typeof document !== "undefined") {
     if (errorBox) errorBox.style.display = "none";
   }
   modeLabels.forEach(function (label) {
+    label.addEventListener("click", function () { setTimeout(syncModeUI, 0); });
+  });
+  typeLabels.forEach(function (label) {
     label.addEventListener("click", function () { setTimeout(syncModeUI, 0); });
   });
   if (form) {
@@ -311,7 +331,8 @@ if (typeof document !== "undefined") {
         return;
       }
       if (errorBox) errorBox.style.display = "none";
-      openPitcBill(mode === "customer" ? PITC.customerUrl(result.cleaned) : PITC.billUrl(result.cleaned));
+      var billType = currentBillType();
+      openPitcBill(mode === "customer" ? PITC.customerUrl(result.cleaned) : (billType === "industrial" ? PITC.industrialUrl(result.cleaned) : PITC.billUrl(result.cleaned)));
     });
   }
   syncModeUI();

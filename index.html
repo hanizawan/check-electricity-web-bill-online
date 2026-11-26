@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Electricity Bill Online — View Duplicate Bill (All DISCOs)</title>
+<meta name="description" content="Check your electricity bill online for all 11 DISCOs — LESCO, IESCO, FESCO, MEPCO and more. View and print your duplicate bill on the official PITC website.">
+<link rel="canonical" href="https://check-electricity-web-bill-online.netlify.app/">
+<meta name="google-site-verification" content="KUhYZ1lvPiHuMSXZiMBEm8-NoV1jmXliLJLXFiaW7V0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6JMH43M415"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6JMH43M415');
+</script>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1f2937;background:#fff;line-height:1.6}
+a{color:#16a34a}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.site-header{background:#0a1f44;color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;max-width:1100px;margin:0 auto;flex-wrap:wrap}
+.site-name{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:1.05rem}
+.site-name svg{flex:none}
+.site-logo{height:72px;width:auto;display:block;border-radius:10px}
+@media(max-width:640px){.site-logo{height:54px}}
+.main-nav{display:flex;gap:4px;flex-wrap:wrap}
+.main-nav a{color:#dbeafe;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:.95rem}
+.main-nav a:hover{background:#123a7a;color:#fff}
+.dropdown{position:relative}
+.dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;min-width:210px;max-width:calc(100vw - 24px);background:#fff;border-radius:12px;box-shadow:0 12px 32px rgba(10,31,68,.28);padding:8px;display:none;z-index:60}
+.dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+.dropdown-menu a{display:block;color:#0a1f44;padding:9px 12px;border-radius:8px;font-size:.95rem}
+.dropdown-menu a:hover{background:#eff6ff;color:#0a1f44}
+.hero{background:linear-gradient(135deg,#0a1f44 0%,#123a7a 100%);color:#fff;padding:56px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+.hero h1{font-size:2.4rem;line-height:1.15;margin:0 0 14px}
+.hero p.lead{color:#dbeafe;font-size:1.1rem;margin:0 0 22px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:8px 14px;font-size:.9rem;color:#fff}
+.btn{display:inline-block;background:#16a34a;color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:10px;border:0;cursor:pointer;font-size:1rem}
+.btn:hover{background:#15803d}
+.sample-bill{background:#fff;color:#1f2937;border-radius:14px;padding:20px;box-shadow:0 12px 32px rgba(0,0,0,.35);position:relative;transform:rotate(1.5deg)}
+.sample-bill .tag{position:absolute;top:12px;right:12px;background:#f59e0b;color:#fff;font-size:.65rem;font-weight:700;letter-spacing:.08em;padding:3px 8px;border-radius:6px}
+.sample-bill h3{margin:0 0 4px;font-size:1rem;color:#0a1f44}
+.sample-bill .row{display:flex;justify-content:space-between;font-size:.85rem;padding:5px 0;border-bottom:1px dashed #e5e7eb}
+.sample-bill .total{font-weight:700;color:#16a34a}
+.barcode{height:42px;margin-top:12px;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 5px,#111 5px 6px,transparent 6px 10px,#111 10px 13px,transparent 13px 16px)}
+.section{padding:48px 0}
+.section.alt{background:#f8fafc}
+.section h2{color:#0a1f44;font-size:1.7rem;margin:0 0 8px;text-align:center}
+.section .sub{text-align:center;color:#6b7280;margin:0 auto 28px;max-width:640px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(10,31,68,.07)}
+.card h3{margin:10px 0 6px;color:#0a1f44}
+.card p{margin:0;color:#4b5563;font-size:.95rem}
+.card .icon{width:44px;height:44px;border-radius:12px;background:#dcfce7;display:flex;align-items:center;justify-content:center}
+.search-box{max-width:560px;margin:0 auto 26px}
+.search-box input{width:100%;padding:13px 16px;border:1.5px solid #d1d5db;border-radius:12px;font-size:1rem}
+.search-box input:focus{outline:2px solid #16a34a;border-color:#16a34a}
+.company-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.company-card{display:flex;flex-direction:column;gap:4px}
+.company-card .short{font-weight:800;color:#0a1f44;font-size:1.15rem;letter-spacing:.02em}
+.company-card .full{color:#374151;font-size:.95rem}
+.company-card .area{color:#6b7280;font-size:.88rem;margin-bottom:12px}
+.company-card .btn{margin-top:auto;text-align:center;padding:10px 16px}
+.company-card .note{font-size:.82rem;color:#6b7280;margin-top:8px}
+.co-badge{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#fff;margin:0 auto 10px;letter-spacing:.02em;box-shadow:0 2px 6px rgba(10,31,68,.18)}
+.co-badge-lg{width:64px;height:64px;border-radius:16px;font-size:23px;margin:0 auto 14px}
+.no-results{display:none;text-align:center;color:#6b7280;padding:20px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step-num{width:38px;height:38px;border-radius:50%;background:#16a34a;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.05rem}
+.faq{max-width:800px;margin:0 auto}
+.faq details{border:1px solid #e5e7eb;border-radius:12px;padding:14px 18px;margin-bottom:10px;background:#fff}
+.faq summary{font-weight:600;color:#0a1f44;cursor:pointer}
+.faq p{margin:10px 0 2px;color:#4b5563}
+.page-head{background:linear-gradient(135deg,#0a1f44,#123a7a);color:#fff;padding:40px 0 44px}
+.page-head h1{margin:0 0 8px;font-size:2rem;line-height:1.2}
+.page-head p{color:#dbeafe;margin:0;max-width:720px}
+.checker{max-width:640px;margin:-24px auto 0;position:relative}
+.mode-toggle{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.mode-toggle label{flex:1;text-align:center;border:1.5px solid #d1d5db;border-radius:10px;padding:10px;cursor:pointer;font-weight:600;color:#374151;background:#fff}
+.mode-toggle input{display:none}
+.mode-toggle label.active{background:#16a34a;border-color:#16a34a;color:#fff}
+.checker input[type=text]{width:100%;padding:14px 16px;border:1.5px solid #d1d5db;border-radius:12px;font-size:1.15rem;letter-spacing:.06em}
+.checker input[type=text]:focus{outline:2px solid #16a34a;border-color:#16a34a}
+.checker .helper{font-size:.88rem;color:#6b7280;margin:8px 0 0}
+.checker .error{display:none;color:#b91c1c;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:10px 14px;margin-top:12px;font-size:.93rem}
+.checker .btn{width:100%;margin-top:16px;padding:14px;font-size:1.05rem}
+.checker .privacy-note{font-size:.85rem;color:#6b7280;margin-top:12px;text-align:center}
+.content{max-width:800px;margin:0 auto}
+.content h2{color:#0a1f44;margin-top:34px}
+.content ol,.content ul{padding-left:22px}
+.related{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.related a{border:1.5px solid #16a34a;color:#16a34a;text-decoration:none;padding:8px 14px;border-radius:999px;font-weight:600;font-size:.9rem}
+.related a:hover{background:#16a34a;color:#fff}
+.site-footer{background:#0a1f44;color:#cbd5e1;padding:36px 0 28px;margin-top:56px;text-align:center}
+.site-footer nav{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.site-footer a{color:#fff;text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+.site-footer .note{font-size:.85rem;max-width:760px;margin:0 auto 10px}
+.site-footer .copy{font-size:.85rem;color:#94a3b8}
+.contact-form{max-width:560px;margin:0 auto}
+.contact-form label{display:block;font-weight:600;color:#0a1f44;margin:16px 0 6px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 14px;border:1.5px solid #d1d5db;border-radius:10px;font-size:1rem;font-family:inherit}
+.contact-form textarea{min-height:140px;resize:vertical}
+.hidden-field{display:none}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}.feature-grid,.steps{grid-template-columns:1fr}.hero h1{font-size:1.9rem}.sample-bill{transform:none}}
+</style>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Check Electricity Web Bill Online",
+  "url": "https://check-electricity-web-bill-online.netlify.app/"
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Is this service free?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. Checking and printing your duplicate bill is completely free. You only pay your actual electricity bill amount when you pay it at a bank, through a banking app, or through a mobile wallet."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Do I need an account or sign-up?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. There is no registration and no login. You only need the 14-digit reference number or the 10-digit customer ID printed on any old electricity bill."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Where do I find my reference number?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Your reference number is printed at the top of every electricity bill — it is 14 digits long. Your customer ID is a different 10-digit number, also printed on the bill. Neither of them is the meter number stamped on your meter."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Can I pay with a printed duplicate bill?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Yes. The bill you view and print from the official PITC page works as a duplicate bill. You can pay it at any bank branch, through your banking app, or through a mobile wallet using the same reference number."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Is this the official website?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "No. Check Electricity Web Bill Online is an independent guide, not an official website. When you check your bill here, it opens on the official PITC website (bill.pitc.com.pk) — the same official source your electricity company uses."
+    }
+   }
+  ]
+ }
+]
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-name" href="index.html"><img src="logo.jpg" alt="Check Electricity Web Bill Online" class="site-logo" width="108" height="72"></a>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="#companies" aria-haspopup="true">Bill Check ▾</a>
+        <div class="dropdown-menu">
+          <a href="lesco-bill.html">LESCO</a>
+          <a href="gepco-bill.html">GEPCO</a>
+          <a href="fesco-bill.html">FESCO</a>
+          <a href="iesco-bill.html">IESCO</a>
+          <a href="mepco-bill.html">MEPCO</a>
+          <a href="pesco-bill.html">PESCO</a>
+          <a href="hazeco-bill.html">HAZECO</a>
+          <a href="hesco-bill.html">HESCO</a>
+          <a href="sepco-bill.html">SEPCO</a>
+          <a href="qesco-bill.html">QESCO</a>
+          <a href="tesco-bill.html">TESCO</a>
+          <a href="https://www.ke.com.pk/" target="_blank" rel="noopener">K-Electric</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Check Your Electricity Bill Online</h1>
+      <p class="lead">View and print your duplicate electricity bill in seconds — free, instant, and no sign-up. Pick your company, enter your reference number, and your bill opens on the official PITC website.</p>
+      <a class="btn" href="#companies">Find Your Company</a>
+      <div class="stats">
+        <span class="stat"><strong>11</strong> DISCOs</span>
+        <span class="stat"><strong>24/7</strong> Access</span>
+        <span class="stat"><strong>100%</strong> Free</span>
+      </div>
+    </div>
+    <div class="sample-bill" aria-hidden="true">
+      <span class="tag">SAMPLE</span>
+      <h3>Electricity Bill</h3>
+      <div class="row"><span>Reference No.</span><span>14-digit number</span></div>
+      <div class="row"><span>Units Consumed</span><span>— units</span></div>
+      <div class="row"><span>Due Date</span><span>On your bill</span></div>
+      <div class="row"><span>Payable Amount</span><span class="total">Rs. —</span></div>
+      <div class="barcode"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="feature-grid">
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3>Instant Bill View</h3>
+        <p>See your latest bill in seconds using your 14-digit reference number or 10-digit customer ID — no account, no waiting.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M6 9V3h12v6M6 18H4V9h16v9h-2M6 14h12v7H6z"/></svg></div>
+        <h3>Print-Ready Duplicate</h3>
+        <p>Print or save a duplicate bill for payment at any bank branch, or pay through your banking app or mobile wallet.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Official PITC Source</h3>
+        <p>Your bill opens on the official PITC website (bill.pitc.com.pk). This guide never stores your number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="companies">
+  <div class="wrap">
+    <h2>View Your Bill</h2>
+    <p class="sub">Pick your electricity company below, or search by company name or city.</p>
+    <div class="search-box">
+      <input type="text" id="companySearch" placeholder="Search company — e.g. IESCO, LESCO, Lahore…" aria-label="Search electricity company">
+    </div>
+    <div class="company-grid" id="companyGrid">
+      <div class="card company-card" data-search="lesco lahore electric supply company lahore">
+        <div class="co-badge" style="background:#0e7490" aria-hidden="true">LE</div>
+        <span class="short">LESCO</span>
+        <span class="full">Lahore Electric Supply Company</span>
+        <span class="area">Lahore</span>
+        <a class="btn" href="lesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="gepco gujranwala electric power company gujranwala">
+        <div class="co-badge" style="background:#7c3aed" aria-hidden="true">GE</div>
+        <span class="short">GEPCO</span>
+        <span class="full">Gujranwala Electric Power Company</span>
+        <span class="area">Gujranwala</span>
+        <a class="btn" href="gepco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="fesco faisalabad electric supply company faisalabad">
+        <div class="co-badge" style="background:#ea580c" aria-hidden="true">FE</div>
+        <span class="short">FESCO</span>
+        <span class="full">Faisalabad Electric Supply Company</span>
+        <span class="area">Faisalabad</span>
+        <a class="btn" href="fesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="iesco islamabad electric supply company islamabad and rawalpindi">
+        <div class="co-badge" style="background:#2563eb" aria-hidden="true">IE</div>
+        <span class="short">IESCO</span>
+        <span class="full">Islamabad Electric Supply Company</span>
+        <span class="area">Islamabad and Rawalpindi</span>
+        <a class="btn" href="iesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="mepco multan electric power company multan and south punjab">
+        <div class="co-badge" style="background:#dc2626" aria-hidden="true">ME</div>
+        <span class="short">MEPCO</span>
+        <span class="full">Multan Electric Power Company</span>
+        <span class="area">Multan and South Punjab</span>
+        <a class="btn" href="mepco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="pesco peshawar electric supply company peshawar and khyber pakhtunkhwa">
+        <div class="co-badge" style="background:#db2777" aria-hidden="true">PE</div>
+        <span class="short">PESCO</span>
+        <span class="full">Peshawar Electric Supply Company</span>
+        <span class="area">Peshawar and Khyber Pakhtunkhwa</span>
+        <a class="btn" href="pesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="hazeco hazara electric supply company hazara (abbottabad, mansehra, haripur)">
+        <div class="co-badge" style="background:#16a34a" aria-hidden="true">HA</div>
+        <span class="short">HAZECO</span>
+        <span class="full">Hazara Electric Supply Company</span>
+        <span class="area">Hazara (Abbottabad, Mansehra, Haripur)</span>
+        <a class="btn" href="hazeco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="hesco hyderabad electric supply company hyderabad">
+        <div class="co-badge" style="background:#0891b2" aria-hidden="true">HE</div>
+        <span class="short">HESCO</span>
+        <span class="full">Hyderabad Electric Supply Company</span>
+        <span class="area">Hyderabad</span>
+        <a class="btn" href="hesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="sepco sukkur electric power company sukkur">
+        <div class="co-badge" style="background:#d97706" aria-hidden="true">SE</div>
+        <span class="short">SEPCO</span>
+        <span class="full">Sukkur Electric Power Company</span>
+        <span class="area">Sukkur</span>
+        <a class="btn" href="sepco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="qesco quetta electric supply company quetta and balochistan">
+        <div class="co-badge" style="background:#4f46e5" aria-hidden="true">QU</div>
+        <span class="short">QESCO</span>
+        <span class="full">Quetta Electric Supply Company</span>
+        <span class="area">Quetta and Balochistan</span>
+        <a class="btn" href="qesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="tesco tribal electric supply company tribal districts">
+        <div class="co-badge" style="background:#475569" aria-hidden="true">TE</div>
+        <span class="short">TESCO</span>
+        <span class="full">Tribal Electric Supply Company</span>
+        <span class="area">Tribal districts</span>
+        <a class="btn" href="tesco-bill.html">Check Bill →</a>
+      </div>
+      <div class="card company-card" data-search="k-electric ke karachi electric">
+        <div class="co-badge" style="background:#65a30d" aria-hidden="true">KE</div>
+        <span class="short">K-Electric</span>
+        <span class="full">K-Electric (Karachi)</span>
+        <span class="area">Karachi</span>
+        <a class="btn" href="https://www.ke.com.pk/" target="_blank" rel="noopener">Check Bill →</a>
+        <span class="note">Karachi — check on K-Electric's own website with your 13-digit account number.</span>
+      </div>
+    </div>
+    <p class="no-results" id="noResults">No company matches your search. Try the short name (for example IESCO) or your city.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>How It Works</h2>
+    <p class="sub">Three simple steps — your bill opens on the official PITC website.</p>
+    <div class="steps">
+      <div class="card"><div class="step-num">1</div><h3>Pick your company</h3><p>Choose your distribution company (DISCO) from the list above — for example IESCO for Islamabad and Rawalpindi.</p></div>
+      <div class="card"><div class="step-num">2</div><h3>Enter your number</h3><p>Type your 14-digit reference number or 10-digit customer ID from any old bill. No spaces or dashes needed.</p></div>
+      <div class="card"><div class="step-num">3</div><h3>View &amp; print</h3><p>Your latest bill opens on the official PITC page. Print it or save it as a PDF to pay anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Frequently Asked Questions</h2>
+    <p class="sub">Quick answers about checking your bill online.</p>
+  <div class="faq">
+    <details>
+      <summary>Is this service free?</summary>
+      <p>Yes. Checking and printing your duplicate bill is completely free. You only pay your actual electricity bill amount when you pay it at a bank, through a banking app, or through a mobile wallet.</p>
+    </details>
+    <details>
+      <summary>Do I need an account or sign-up?</summary>
+      <p>No. There is no registration and no login. You only need the 14-digit reference number or the 10-digit customer ID printed on any old electricity bill.</p>
+    </details>
+    <details>
+      <summary>Where do I find my reference number?</summary>
+      <p>Your reference number is printed at the top of every electricity bill — it is 14 digits long. Your customer ID is a different 10-digit number, also printed on the bill. Neither of them is the meter number stamped on your meter.</p>
+    </details>
+    <details>
+      <summary>Can I pay with a printed duplicate bill?</summary>
+      <p>Yes. The bill you view and print from the official PITC page works as a duplicate bill. You can pay it at any bank branch, through your banking app, or through a mobile wallet using the same reference number.</p>
+    </details>
+    <details>
+      <summary>Is this the official website?</summary>
+      <p>No. Check Electricity Web Bill Online is an independent guide, not an official website. When you check your bill here, it opens on the official PITC website (bill.pitc.com.pk) — the same official source your electricity company uses.</p>
+    </details>
+  </div>
+  </div>
+</section>
+<script>
+function matchesQuery(haystack, query) {
+  var words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  var text = haystack.toLowerCase();
+  return words.every(function (w) { return text.indexOf(w) !== -1; });
+}
+if (typeof document !== "undefined") {
+  var searchInput = document.getElementById("companySearch");
+  var grid = document.getElementById("companyGrid");
+  var noResults = document.getElementById("noResults");
+  if (searchInput && grid) {
+    searchInput.addEventListener("input", function () {
+      var visible = 0;
+      var cards = grid.querySelectorAll(".company-card");
+      cards.forEach(function (card) {
+        var show = matchesQuery(card.getAttribute("data-search") || "", searchInput.value);
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      if (noResults) noResults.style.display = visible === 0 ? "block" : "none";
+    });
+  }
+}
+</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="disclaimer.html">Disclaimer</a>
+    </nav>
+    <p class="note">Check Electricity Web Bill Online is an independent guide and is not affiliated with PITC or any distribution company. Your bill opens on the official PITC website.</p>
+    <p class="copy">© 2026 Check Electricity Web Bill Online. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
